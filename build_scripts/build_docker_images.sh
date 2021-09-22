@@ -3,6 +3,7 @@
 # @author Tim Donovan IBM Research
 #
 set -ev
+set -x
 
 echo "This is the script to build one or more Docker Images"
 echo "related to the WhitelistMasker"
@@ -26,8 +27,8 @@ echo "Image Name: $_ImageName"
 echo "Image Tag: $_imageTag"
 
 echo "Note: At the moment all images are only pushed to the local docker repository."
-# build docker image ( original flag --progress plain errors )
-DOCKER_BUILDKIT=0 docker build --no-cache --tag $_ImageName:$_imageTag  -f MaskWebServices/Dockerfile_MaskWebServices .
+# build docker image
+DOCKER_BUILDKIT=0 docker build --no-cache --progress plain --tag _ImageName:$_imageTag  -f /MaskWebServices/Dockerfile_MaskWebServices .
 if [ $? -ne 0 ]; then
    echo "Failed to build image."
    exit 1
