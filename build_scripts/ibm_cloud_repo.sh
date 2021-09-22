@@ -40,6 +40,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Log into the IBM Cloud container registry                                          #
+############################################################################
+echo "Logging into IBM Cloud container registry"
+ibmcloud cr login
+if [ $? -ne 0 ]; then
+  echo "Failed to authenticate to IBM Cloud container registry"
+  exit 1
+fi
 ############################################################################
 # Check If the waa_full_base:1.0 image exists in the container registry,   #
 # which is needed to make many of the other images.                        #
