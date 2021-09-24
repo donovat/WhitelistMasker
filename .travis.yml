@@ -49,14 +49,19 @@ jobs:
         - mvn clean install -Dgpg.skip
         - ls target/*.jar
         - ls target/*.war
+        - ls ../Masker/target/*.tar
     
-#    - stage: build_docker_images
-#      name: "Build Docker Images"
-#      on:
-#        branch: travis-ci
-#      script:
-#        - build_scripts/build_docker_images.sh
-#        - docker images
+    - stage: build_docker_images
+      name: "Build Docker Images"
+      on:
+        branch: travis-ci
+      script:
+        - pwd
+        - ls ./Masker/target/*.tar
+        - ls ./MaskWebServices/target/*.tar
+        - ls ./MaskWebServices/target/*.war
+        - build_scripts/build_docker_images.sh
+        - docker images
 
 # unit test built image
 #after_success:
