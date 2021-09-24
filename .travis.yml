@@ -45,7 +45,7 @@ jobs:
       on:
         branch: travis-ci
       script:
-        - cd MaskWebService
+        - cd MaskWebServices
         - mvn clean install -Dgpg.skip
         - ls target/*.jar
         - ls target/*.war
