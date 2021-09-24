@@ -39,6 +39,17 @@ jobs:
       script:
         - cd Masker
         - mvn clean install -Dgpg.skip
+        - ls target/*.jar
+    - stage: build_MaskWebService
+      name: "build_MaskWebService"
+      on:
+        branch: travis-ci
+      script:
+        - cd MaskWebService
+        - mvn clean install -Dgpg.skip
+        - ls target/*.jar
+        - ls target/*.war
+    
 #    - stage: build_docker_images
 #      name: "Build Docker Images"
 #      on:
