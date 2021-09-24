@@ -1,10 +1,15 @@
-language: generic
+language: java
 os: linux
 
 sudo: required
 
+# specify to use docker
 services:
   - docker
+
+# specify the jdk to use
+jdk:
+ - openjdk17
 
 env:
   global:
@@ -22,18 +27,25 @@ branches:
 
 # Need to determine if build image command within commit message, if is then 
 # connect to ibmcloud repo
-before_script:
-   - build_scripts/ibm_cloud_repo.sh
+#before_script:
+#   - build_scripts/ibm_cloud_repo.sh
 
 jobs:
   include:
-    - stage: build_docker_images
-      name: "Build Docker Images"
+    - stage: build_Masker
+      name: "build_Masker"
       on:
         branch: travis-ci
       script:
-        - build_scripts/build_docker_images.sh
-        - docker images
+        - cd Masker
+        - mvn clean install -Dgpg.skip
+#    - stage: build_docker_images
+#      name: "Build Docker Images"
+#      on:
+#        branch: travis-ci
+#      script:
+#        - build_scripts/build_docker_images.sh
+#        - docker images
 
 # unit test built image
 #after_success:
@@ -41,13 +53,13 @@ jobs:
 #  - unit_test_result=$(cat unit_test_results) ; echo $unit_test_result
 #  - if [[ -f unit_test_results ]] && [[ $unit_test_result != "Passed" ]]; then echo "Here" ; fi
 
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: build_scripts/deploy_image_to_ibm_repo.sh
-  on:
-    branch: travis-ci
+#deploy:
+#  provider: script
+#  skip_cleanup: true
+#  script: build_scripts/deploy_image_to_ibm_repo.sh
+#  on:
+#    branch: travis-ci
 
-after_script:
-  - docker images
-  - ibmcloud cr image-list
+#after_script:
+#  - docker images
+#  - ibmcloud cr image-list
