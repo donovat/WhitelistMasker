@@ -57,16 +57,6 @@ script:
   - build_scripts/build_docker_images.sh
   - docker images
 
-# unit test built image
-after_success:
-  - build_scripts/unit_test_image.sh
-  - unit_test_result=$(cat unit_test_results) ; echo $unit_test_result
-  - if [[ -f unit_test_results ]] && [[ $unit_test_result != "Passed" ]]; then echo "Here" ; fi
-
-# before deploy login to ibm cloud & cloud image repo
-before_deploy:
-  - build_scripts/ibm_cloud_repo.sh
-
 # deploy docker image into ibm's cloud image repo
 deploy:
   provider: script
@@ -75,6 +65,6 @@ deploy:
   on:
     branch: travis-ci
 
-after_script:
-  - docker images
-  - ibmcloud cr image-list
+#after_script:
+#  - docker images
+#  - ibmcloud cr image-list
