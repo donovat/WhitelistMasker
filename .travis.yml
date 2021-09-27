@@ -58,6 +58,7 @@ script:
   - build_scripts/build_docker_images.sh
   - docker images
 
+# unit test built image
 after_success:
   - build_scripts/unit_test_image.sh
   - unit_test_result=$(cat unit_test_results) ; echo $unit_test_result
@@ -75,6 +76,6 @@ deploy:
   on:
     branch: travis-ci
 
-#after_script:
+after_script:
   - docker images
   - ibmcloud cr image-list
