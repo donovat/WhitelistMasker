@@ -2,6 +2,8 @@
 
 # @author Tim Donovan IBM Research
 #
+# Set script to fail if any command does not return '0'
+set -e
 
 echo "Script to login Travis-ci to IBM's Cloud image repo."
 
