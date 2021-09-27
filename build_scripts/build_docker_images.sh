@@ -28,17 +28,6 @@ echo "Image Tag: $_imageTag"
 echo "Note: At the moment all images are only pushed to the local docker repository."
 # build docker image ( original flag --progress plain errors )
 DOCKER_BUILDKIT=0 docker build --no-cache --tag $_ImageName:$_imageTag  -f MaskWebServices/Dockerfile_MaskWebServices .
-
-#_version=${VERSION:-"1.0.0"}
-_ImageName=${IMAGE_NAME:-"maskerwebservices"}
-_imageTag=${IMAGE_TAG:-"1.0.0"}
-
-echo "Image Name: ${IMAGE_NAME}"
-echo "Image Tag: $_imageTag"
-
-echo "Note: At the moment all images are only pushed to the local docker repository."
-# build docker image
-DOCKER_BUILDKIT=0 docker build --no-cache --progress plain --tag _ImageName:$_imageTag  -f /MaskWebServices/Dockerfile_MaskWebServices .
 if [ $? -ne 0 ]; then
    echo "Failed to build image."
    exit 1
