@@ -36,7 +36,6 @@ install:
   - sudo apt-get install apt-transport-https ca-certificates -y
   - sudo update-ca-certificates
 
-<<<<<<< HEAD
 # Test install of new IBM Cloud CLI install script
 #before_script:
 #   - build_scripts/ibm_cloud_cli_tools_install.sh
@@ -59,40 +58,6 @@ script:
   #- if [[ -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]] && [[ -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then build_scripts/build_docker_images.sh ; fi
   - build_scripts/build_docker_images.sh
   - docker images
-=======
-jobs:
-  include:
-    - stage: build_Masker
-      name: "build_Masker"
-      on:
-        branch: travis-ci
-      script:
-        - cd Masker
-        - mvn clean install -Dgpg.skip
-        - ls target/*.jar
-    - stage: build_MaskWebService
-      name: "build_MaskWebService"
-      on:
-        branch: travis-ci
-      script:
-        - cd MaskWebServices
-        - mvn clean install -Dgpg.skip
-        - ls target/*.jar
-        - ls target/*.war
-        - ls ../Masker/target/*.tar
-    
-    - stage: build_docker_images
-      name: "Build Docker Images"
-      on:
-        branch: travis-ci
-      script:
-        - pwd
-        - ls ./Masker/target/*.tar
-        - ls ./MaskWebServices/target/*.tar
-        - ls ./MaskWebServices/target/*.war
-        - build_scripts/build_docker_images.sh
-        - docker images
->>>>>>> 012f680 (More testing of the travis script - check shared store, - test build)
 
 # unit test built image
 after_success:
