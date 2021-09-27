@@ -22,7 +22,6 @@ env:
     # REGISTRY_NAMESPACE
     # IBM_CLOUD_API_KEY
 
-
 # safelist - only work with these github branches
 # will not take an env value for branch only string. 
 branches:
