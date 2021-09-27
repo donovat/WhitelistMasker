@@ -30,38 +30,59 @@ branches:
 #before_script:
 #   - build_scripts/ibm_cloud_repo.sh
 
-jobs:
-  include:
-    - stage: build_Masker
-      name: "build_Masker"
-      on:
-        branch: travis-ci
-      script:
-        - cd Masker
-        - mvn clean install -Dgpg.skip
-        - ls target/*.jar
-    - stage: build_MaskWebService
-      name: "build_MaskWebService"
-      on:
-        branch: travis-ci
-      script:
-        - cd MaskWebServices
-        - mvn clean install -Dgpg.skip
-        - ls target/*.jar
-        - ls target/*.war
-        - ls ../Masker/target/*.tar
+# Build scripts
+script:
+  # Build code in Masker directory
+  - cd Masker
+  - mvn clean install -Dgpg.skip
+  - ls target/*.jar
+  # Build code in MaskWebServices directory
+  - cd MaskWebServices
+  - mvn clean install -Dgpg.skip
+  - ls target/*.jar
+  - ls target/*.war
+  # Checking once only
+  - cd ..
+  - ls Masker/
+  - ls Masker/target/*.tar
+  # Build Docker image from DOckerfile
+  - build_scripts/build_docker_images.sh
+  - docker images
+
+#jobs:
+#  include:
+#    - stage: build_Masker
+#      name: "build_Masker"
+#      on:
+#        branch: travis-ci
+#      script:
+#        - cd Masker
+#        - mvn clean install -Dgpg.skip
+#        - ls target/*.jar
+#    - stage: build_MaskWebService
+#      name: "build_MaskWebService"
+#      on:
+#        branch: travis-ci
+#      script:
+#        - cd MaskWebServices
+#        - mvn clean install -Dgpg.skip
+#        - ls target/*.jar
+#        - ls target/*.war
+#        - cd ..
+#        - ls Masker/
+#        - ls Masker/target/*.tar
     
-    - stage: build_docker_images
-      name: "Build Docker Images"
-      on:
-        branch: travis-ci
-      script:
-        - pwd
-        - ls ./Masker/target/*.tar
-        - ls ./MaskWebServices/target/*.tar
-        - ls ./MaskWebServices/target/*.war
-        - build_scripts/build_docker_images.sh
-        - docker images
+#    - stage: build_docker_images
+#      name: "Build Docker Images"
+#      on:
+#        branch: travis-ci
+#      script:
+#        - pwd
+#        - ls ./Masker/target/*.tar
+#        - ls ./MaskWebServices/target/*.tar
+#        - ls ./MaskWebServices/target/*.war
+#        - build_scripts/build_docker_images.sh
+#        - docker images
 
 # unit test built image
 #after_success:
