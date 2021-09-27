@@ -48,10 +48,8 @@ script:
   - cd ..
   - ls Masker/
   - ls Masker/target/*.jar
-
-after_success:
   # Build Docker image from DOckerfile
-  - build_scripts/build_docker_images.sh
+  - if [[ -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]] && [[ -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then build_scripts/build_docker_images.sh ; fi
   - docker images
 
 #jobs:
