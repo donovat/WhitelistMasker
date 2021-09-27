@@ -49,8 +49,6 @@ script:
   - ls target/*.war
   - cd ..
   # Build Docker image from Dockerfile
-
-  # Build Docker image from DOckerfile
   - if [[ -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]] && [[ -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then build_scripts/build_docker_images.sh ; fi
   - docker images
 
