@@ -13,7 +13,7 @@ if [[ ! -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]]; then
    exit 1
 fi
 # Check if MaskWebServices war file present
-if [[ ! -f target/MaskWebServices-1.1.4.war ]]; then
+if [[ ! -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then
    echo "Missing MaskWebServices war file in target, cannot continue with build."
    exit 1
 fi
