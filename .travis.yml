@@ -60,6 +60,6 @@ deploy:
   on:
     branch: travis-ci
 
-#after_script:
-#  - docker images
-#  - ibmcloud cr image-list
+after_script:
+  - docker images
+  - ibmcloud cr image-list
