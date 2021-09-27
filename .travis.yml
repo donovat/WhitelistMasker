@@ -15,9 +15,10 @@ env:
   global:
     - IMAGE_NAME=maskerwebservices
     - IMAGE_TAG=1.1.4
-    - IBM_CLOUD_REGION=eu-gb
-    - REGISTRY_REGION=uk.icr.io
-    - REGISTRY_NAMESPACE=ic_tim_donovan_org_uk
+    # Following values set in Travis-ci setting so can eaily be changed.
+    # IBM_CLOUD_REGION
+    # REGISTRY_REGION
+    # REGISTRY_NAMESPACE
 
 # safelist - only work with these github branches
 # will not take an env value for branch only string. 
@@ -33,18 +34,22 @@ branches:
 # Build scripts
 script:
   # Build code in Masker directory
+  - echo $HOME
+  - echo $(pwd)
   - cd Masker
   - mvn clean install -Dgpg.skip
   - ls target/*.jar
   # Build code in MaskWebServices directory
-  - cd MaskWebServices
+  - cd ../MaskWebServices
   - mvn clean install -Dgpg.skip
   - ls target/*.jar
   - ls target/*.war
   # Checking once only
   - cd ..
   - ls Masker/
-  - ls Masker/target/*.tar
+  - ls Masker/target/*.jar
+
+after_success:
   # Build Docker image from DOckerfile
   - build_scripts/build_docker_images.sh
   - docker images
