@@ -2,6 +2,8 @@
 
 # @author Tim Donovan IBM Research
 #
+# set script to fail if any command does not return '0'
+set -e 
 
 echo "Script to push an image built within Travis-ci to IBM's Cloud image repo."
 echo "This script is called by Travis-ci during the deploy stage."
