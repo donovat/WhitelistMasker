@@ -68,10 +68,6 @@ after_success:
 before_deploy:
   - build_scripts/ibm_cloud_repo.sh
 
-# before deploy login to ibm cloud & cloud image repo
-before_deploy:
-  - build_scripts/ibm_cloud_repo.sh
-
 # deploy docker image into ibm's cloud image repo
 deploy:
   provider: script
