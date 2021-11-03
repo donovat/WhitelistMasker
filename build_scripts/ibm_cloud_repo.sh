@@ -31,6 +31,16 @@ if [ $? -ne 0 ]; then
 fi
 
 ############################################################################
+# Set the right Region for IBM Cloud container registry                    #
+############################################################################
+echo "Switch to the correct region for the required IBM Cloud container registry"
+ibmcloud cr region-set ${REGISTRY_REGION}
+if [ $? -ne 0 ]; then
+  echo "Failed to switch to correct IBM Cloud container registry region"
+  exit 1
+fi
+
+############################################################################
 # Log into the IBM Cloud container registry                                          #
 ############################################################################
 echo "Logging into IBM Cloud container registry"
