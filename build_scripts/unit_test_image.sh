@@ -35,7 +35,7 @@ if [[ $result != "Hello from MaskWebServices" ]]; then
 else 
     echo "Docker Image passed Unit Test."
     echo "Passed" >unit_test_results
-  fi
+fi
 
 ############################################################################
 # end script                                                               #
