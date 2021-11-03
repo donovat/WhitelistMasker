@@ -8,6 +8,9 @@
 # rather than the DEPRICATED installer: https://ibm.biz/idt-installer 
 set -ex 
 
+ls -al /etc/ssl/certs/ca-certificates.crt 
+ls -al /etc/ssl/certs/
+
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
@@ -28,5 +31,4 @@ curl -ksSL https://clis.cloud.ibm.com/install/linux | bash
 echo "Try a gain"
 curl -ksSL -o install.sh https://clis.cloud.ibm.com/install/linux
 cat ./install.sh
-
 ibmcloud --help
