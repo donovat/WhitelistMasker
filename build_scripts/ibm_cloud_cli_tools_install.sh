@@ -13,8 +13,10 @@ set -x
 ############################################################################
 echo "Install IBM Cloud CLI"
 curl --version
-curl -ksSL http://clis.cloud.ibm.com/install/linux | bash
-echo "Try a gain"
+wget http://clis.cloud.ibm.com/install/linux
 curl -ksSL -o install.sh https://clis.cloud.ibm.com/install/linux
 cat ./install.sh
+echo "Try a gain"
+curl -ksSL -o install.sh https://clis.cloud.ibm.com/install/linux | sh
+
 ibmcloud --help
