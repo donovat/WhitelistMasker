@@ -33,6 +33,10 @@ install:
   - sudo apt-get update
   - sudo apt-get install apt-transport-https ca-certificates -y
   - sudo update-ca-certificates
+ 
+# Test install of new IBM Cloud CLI install script
+before_script:
+   - build_scripts/ibm_cloud_cli_tools_install.sh
 
 # Build scripts
 script:
