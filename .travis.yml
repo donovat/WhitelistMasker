@@ -38,7 +38,7 @@ install:
 # Test install of new IBM Cloud CLI install script
 #before_script:
 #   - build_scripts/ibm_cloud_cli_tools_install.sh
-
+ 
 # Build scripts
 script:
   # Build code in Masker directory
