@@ -40,6 +40,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+############################################################################
 # Log into the IBM Cloud container registry                                          #
 ############################################################################
 echo "Logging into IBM Cloud container registry"
