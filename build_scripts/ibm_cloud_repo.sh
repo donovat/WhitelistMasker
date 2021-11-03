@@ -18,7 +18,8 @@ echo
 #    https://github.com/IBM-Cloud/ibm-cloud-developer-tools                #
 ############################################################################
 echo "Install IBM Cloud CLI"
-curl --insecure -sL https://ibm.biz/idt-installer | bash
+# trying http end point as issues with cert using https
+curl --insecure -sL http://ibm.biz/idt-installer | bash
 
 ############################################################################
 # Log into the IBM Cloud environment using apikey                          #
