@@ -25,11 +25,10 @@ env:
 branches:
    only:
    - travis-ci
-
-# Need to determine if build image command within commit message, if is then 
-# connect to ibmcloud repo
-#before_script:
-#   - build_scripts/ibm_cloud_repo.sh
+ 
+# Test install of new IBM Cloud CLI install script
+before_script:
+   - build_scripts/ibm_cloud_cli_tools_install.sh
 
 # Build scripts
 script:
