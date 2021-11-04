@@ -6,13 +6,14 @@
 
 # Note: This is my version of a script to install the IBM Cloud CLI tools
 # rather than the DEPRICATED installer: https://ibm.biz/idt-installer 
-set -e 
-set -x
+set -ex 
 
-apt-get update && \
-sudo apt-get install apt-transport-https ca-certificates -y && \
+whoami
+
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates -y
 sudo update-ca-certificates 
- 
+
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
