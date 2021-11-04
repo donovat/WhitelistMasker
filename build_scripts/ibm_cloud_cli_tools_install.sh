@@ -6,6 +6,10 @@
 set -e 
 set -x
 
+apt-get update && \
+sudo apt-get install apt-transport-https ca-certificates -y && \
+sudo update-ca-certificates 
+ 
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
