@@ -3,20 +3,19 @@
 # @author Tim Donovan IBM Research
 #
 # set script to fail if any command does not return '0'
+
+# Note: This is my version of a script to install the IBM Cloud CLI tools
+# rather than the DEPRICATED installer: https://ibm.biz/idt-installer 
 set -ex 
 
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
 #    https://cloud.ibm.com/docs/cli/index.html                             #
+# note: curl flags -s=quite -S=show errers -L=follow redirects             #
 ############################################################################
 echo "Install IBM Cloud CLI"
-curl --version
 curl -sSL https://clis.cloud.ibm.com/install/linux | sh
-#wget http://clis.cloud.ibm.com/install/linux
-curl -ksSL https://download.clis.cloud.ibm.com/ibm-cloud-cli-installer-scripts/linux
 
-echo "Try a gain"
-curl -ksSL -o install.sh https://clis.cloud.ibm.com/install/linux | sh
-
-ibmcloud --help
+ibmcloud version
+ibmcloud plugin list
