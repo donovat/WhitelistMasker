@@ -8,12 +8,6 @@
 # rather than the DEPRICATED installer: https://ibm.biz/idt-installer 
 set -ex 
 
-whoami
-
-sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates -y
-sudo update-ca-certificates 
-
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
