@@ -27,14 +27,16 @@ branches:
    only:
    - travis-ci
 
+# Added the following lines to see if would fix issue with ssl certificates, but moving to 
+# linux dist bionic fixed the issue.
 install:
   - sudo apt-get update
   - sudo apt-get install apt-transport-https ca-certificates -y
   - sudo update-ca-certificates
 
 # Test install of new IBM Cloud CLI install script
-before_script:
-   - build_scripts/ibm_cloud_cli_tools_install.sh
+#before_script:
+#   - build_scripts/ibm_cloud_cli_tools_install.sh
 
 # Build scripts
 script:

@@ -3,7 +3,7 @@
 # @author Tim Donovan IBM Research
 #
 # Set script to fail if any command does not return '0'
-set -e
+set -ex
 
 echo "Script to login Travis-ci to IBM's Cloud image repo."
 
@@ -18,8 +18,7 @@ echo
 #    https://github.com/IBM-Cloud/ibm-cloud-developer-tools                #
 ############################################################################
 echo "Install IBM Cloud CLI"
-# trying http end point as issues with cert using https
-curl --insecure -sL http://ibm.biz/idt-installer | bash
+curl --insecure -sL https://ibm.biz/idt-installer | bash
 
 ############################################################################
 # Log into the IBM Cloud environment using apikey                          #
