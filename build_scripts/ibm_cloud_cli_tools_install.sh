@@ -3,13 +3,14 @@
 # @author Tim Donovan IBM Research
 #
 # set script to fail if any command does not return '0'
-set -e 
-set -x
+set -ex 
 
-apt-get update && \
-sudo apt-get install apt-transport-https ca-certificates -y && \
+whoami
+
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates -y
 sudo update-ca-certificates 
- 
+
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
