@@ -1,5 +1,8 @@
-/maskerwebservices.tar.gz
+/maskersvcs.tar.gz
 /maskersvcs.tar
-/maskerwebservices.tar
-travis.yml.dockerfile_build
-.gitignore
+/BuildTomcatMaskWebServices.sh
+/BuildWildFlyMaskWebServices.sh
+/DockerfileTomcat
+/DockerfileWildFly
+/tc_maskerwebservices.tar.gz
+/wf_maskerwebservices.tar.gz
