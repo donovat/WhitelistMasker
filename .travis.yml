@@ -35,8 +35,8 @@ install:
   - sudo update-ca-certificates
  
 # Test install of new IBM Cloud CLI install script
-before_script:
-   - build_scripts/ibm_cloud_cli_tools_install.sh
+#before_script:
+#   - build_scripts/ibm_cloud_cli_tools_install.sh
 
 # Build scripts
 script:
@@ -53,7 +53,8 @@ script:
   - ls target/*.war
   - cd ..
   # Build Docker image from Dockerfile
-  - if [[ -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]] && [[ -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then build_scripts/build_docker_images.sh ; fi
+  #- if [[ -f Masker/target/Masker-1.1.4-jar-with-dependencies.jar ]] && [[ -f MaskWebServices/target/MaskWebServices-1.1.4.war ]]; then build_scripts/build_docker_images.sh ; fi
+  - build_scripts/build_docker_images.sh
   - docker images
 
 # unit test built image

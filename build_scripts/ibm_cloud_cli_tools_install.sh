@@ -6,13 +6,13 @@
 
 # Note: This is my version of a script to install the IBM Cloud CLI tools
 # rather than the DEPRICATED installer: https://ibm.biz/idt-installer 
-set -e 
-set -x
 
 apt-get update && \
 sudo apt-get install apt-transport-https ca-certificates -y && \
 sudo update-ca-certificates 
  
+set -ex 
+
 ############################################################################
 # Download and install the IBM Cloud CLI tool.                             #
 # Documentation on details can be found here:                              #
@@ -35,3 +35,4 @@ echo "Try a gain"
 curl -ksSL -o install.sh https://clis.cloud.ibm.com/install/linux
 cat ./install.sh
 ibmcloud --help
+ibmcloud plugin list
