@@ -20,7 +20,7 @@ fi
 
 #_version=${VERSION:-"1.0.0"}
 _ImageName=${IMAGE_NAME:-"maskerwebservices"}
-_imageTag=${IMAGE_TAG:-"1.0.0"}
+_imageTag=${IMAGE_TAG:-"1.0.8"}
 
 echo "Image Name: $_ImageName"
 echo "Image Tag: $_imageTag"

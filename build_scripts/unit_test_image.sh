@@ -2,7 +2,7 @@
 
 # @author Tim Donovan IBM Research
 #
-set +x
+set -x
 
 echo "Unit test docker image, before deployment to cloud repo."
 

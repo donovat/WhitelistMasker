@@ -31,8 +31,7 @@ ibmcloud cr images
 ############################################################################
 echo "Tagging the image as $REGISTRY_REGION/$REGISTRY_NAMESPACE/$IMAGE_NAME:$IMAGE_TAG and $REGISTRY_REGION/$REGISTRY_NAMESPACE/$IMAGE_NAME:latest"
 docker tag $IMAGE_NAME:$IMAGE_TAG $REGISTRY_REGION/$REGISTRY_NAMESPACE/$IMAGE_NAME:$IMAGE_TAG
-docker tag $IMAGE_NAME:$IMAGE_TAG $REGISTRY_REGION/$REGISTRY_NAMESPACE/$IMAG
-E_NAME:latest
+docker tag $IMAGE_NAME:$IMAGE_TAG $REGISTRY_REGION/$REGISTRY_NAMESPACE/$IMAGE_NAME:latest
 
 ############################################################################
 # Push the image                                                           #
