@@ -15,11 +15,12 @@ jdk:
 env:
   global:
     - IMAGE_NAME=maskerwebservices
-    - IMAGE_TAG=1.1.4
+    - IMAGE_TAG=1.1.8
     # Following values set in Travis-ci setting so can eaily be changed.
     # IBM_CLOUD_REGION
     # REGISTRY_REGION
     # REGISTRY_NAMESPACE
+    # IBM_CLOUD_API_KEY
 
 # safelist - only work with these github branches
 # will not take an env value for branch only string. 
