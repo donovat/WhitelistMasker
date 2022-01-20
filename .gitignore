@@ -6,3 +6,4 @@
 /DockerfileWildFly
 /tc_maskerwebservices.tar.gz
 /wf_maskerwebservices.tar.gz
+travis.yml.dockerfile_build
