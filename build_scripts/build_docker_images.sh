@@ -8,26 +8,26 @@ echo "This is the script to build one or more Docker Images"
 echo "related to the WhitelistMasker"
 
 # Check if Masker jar file has been built into target directory
-if [[ ! -f Masker/target/Masker-1.2.0-jar-with-dependencies.jar ]]; then
+if [[ ! -f Masker/target/Masker-1.2.1-jar-with-dependencies.jar ]]; then
    echo "Missing Masker jar file in Masker/target, cannot continue with build."
    exit 1
 fi
 # Check if MaskWebServices war file present
-if [[ ! -f MaskWebServices/target/MaskWebServices-1.2.0.war ]]; then
+if [[ ! -f MaskWebServices/target/MaskWebServices-1.2.1.war ]]; then
    echo "Missing MaskWebServices war file in target, cannot continue with build."
    exit 1
 fi
 
 #_version=${VERSION:-"1.0.0"}
 _ImageName=${IMAGE_NAME:-"maskerwebservices"}
-_imageTag=${IMAGE_TAG:-"1.2.0"}
+_imageTag=${IMAGE_TAG:-"1.2.1"}
 
 echo "Image Name: $_ImageName"
 echo "Image Tag: $_imageTag"
 
 echo "Note: At the moment all images are only pushed to the local docker repository."
 # build docker image ( original flag --progress plain errors )
-DOCKER_BUILDKIT=0 docker build --no-cache --tag $_ImageName:$_imageTag  -f MaskWebServices/Dockerfile_MaskWebServices .
+DOCKER_BUILDKIT=0 docker build --no-cache --progress plain --tag $_ImageName:$_imageTag  -f MaskWebServices/Dockerfile_MaskWebServices .
 if [ $? -ne 0 ]; then
    echo "Failed to build image."
    exit 1
